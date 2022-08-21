@@ -20,7 +20,7 @@ dates = df.date.unique()
 db_level_3da = df.groupby('dartbot_level')['3-dart average'].mean().round(2)
 
 """
--- 
+-- COUNT OF MATCHES AT EACH LEVEL
 """
 db_level_count = df.groupby('dartbot_level')['result'].count() # counts number of records at each dartbot level
 
