@@ -11,7 +11,7 @@ Create a virtual environment.
 Use your IDE to install requirements.txt or at the command prompt:
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 VS_BuildTools.exe may need to be run to make the web page work.
 Download the latest version if running after Q3 2022 and problems occur.
