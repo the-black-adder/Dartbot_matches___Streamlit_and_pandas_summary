@@ -23,7 +23,7 @@ Download the latest version if running after Q3 2022 and problems occur.
 
 In the command prompt, navigate to the project folder.
 ```
-> streamlit run app.py
+streamlit run app.py
 ```
 ### Remote 
 The web page can be run from the Github repository.
@@ -32,22 +32,3 @@ The web page can be run from the Github repository.
 [YouTube videos (ctrl + click to open in new tab)](https://www.youtube.com/results?search_query=streamlit)
 
 [Streamlit documentation](https://docs.streamlit.io/library/get-started/installation)
-
-#### Readme code examples (not relevant to this project)
-
-```bash
-pip install foobar
-```
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
