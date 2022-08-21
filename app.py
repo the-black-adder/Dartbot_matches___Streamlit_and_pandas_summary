@@ -1,12 +1,12 @@
-"""
-STREAMLIT DASHBOARD OF DARTBOT MATCHES
-"""
+# """
+# STREAMLIT DASHBOARD OF DARTBOT MATCHES
+# """
 
 
 import streamlit as st
 import pandas as pd
 import openpyxl
-# import plotly.express as px
+import plotly.express as px
 
 # https://www.webfx.com/tools/emoji-cheat-sheet/
 xlfile = r'D:\EXCEL\Dartbot matches.xlsx'
@@ -19,31 +19,49 @@ df['Date'] = df['Date'].dt.strftime('%d-%m-%Y')
 df.columns = df.columns.str.lower()
 dates = df.date.unique()
 
-"""
--- MEAN OF 3-DART AVERAGE FOR EACH DARTBOT LEVEL
-"""
+# """
+# -- MEAN OF 3-DART AVERAGE FOR EACH DARTBOT LEVEL
+# """
 db_level_3da = df.groupby('dartbot_level')['3-dart average'].mean().round(2)
 
-"""
--- COUNT OF MATCHES AT EACH LEVEL
-"""
+# """
+# -- COUNT OF MATCHES AT EACH LEVEL
+# """
 db_level_count = df.groupby('dartbot_level')['result'].count() # counts number of records at each dartbot level
 
 db_level_result = df['result'].groupby(df['dartbot_level']).value_counts()
 
-""" 
--- TABLE OF WIN % 
-"""
-db_level_crosstab = pd.crosstab(df.dartbot_level,df.result,normalize='index')
+# """
+# -- TABLE OF WIN %
+# """
+db_level_crosstab = pd.crosstab(df.dartbot_level,df.result,normalize='index') # normalize gives %age of total, in this case, % of all at that dartbot level, the first parameter
 db_level_crosstab.drop('Lost', axis=1,inplace=True)
 db_level_crosstab['Won'] *= 100
 db_level_crosstab['Won'] = db_level_crosstab['Won'].round(decimals=0)
 print(db_level_crosstab)
 
+# """
+# -- BAR CHART OF WIN %
+# """
+# dfb = px.data.tips()
+fig = px.bar(db_level_crosstab, x="Won", orientation='h',
+             height=400,
+             labels={"dartbot_level" : "3-dart avg",
+                     "Won" : "Win %"}
+             )
+# fig.show()
+
+
+
 # ---- HEADER SECTION ----
 with st.container():
     st.title("Dartbot Matches 2022")
     st.subheader("First to 5 legs")
+
+    # st.bar_chart(db_level_crosstab)
+    st.header("Win % by Dartbot Level")
+    st.write(fig)
+
     date = st.selectbox("Select date", df.date.unique())
     match_result = st.selectbox("Select result", df.result.unique())
     df_selection = df.query("date == @date & result == @match_result")
