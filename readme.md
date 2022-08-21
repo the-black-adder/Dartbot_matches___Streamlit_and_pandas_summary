@@ -6,21 +6,38 @@ This is a project to read in dartbot matches from Excel, use pandas to create su
 
 Clone the Github project.
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Create a virtual environment.
 
-```bash
-pip install foobar
+Use your IDE to install requirements.txt or at the command prompt:
+
 ```
+pip install requirements.txt
+```
+VS_BuildTools.exe may need to be run to make the web page work.
+Download the latest version if running after Q3 2022 and problems occur.
+
 
 ## Usage
 
 ### Local 
 
 In the command prompt, navigate to the project folder.
-```> streamlit app.py```
+```
+> streamlit run app.py
+```
 ### Remote 
 The web page can be run from the Github repository.
 
+## Resources
+[YouTube videos (ctrl + click to open in new tab)](https://www.youtube.com/results?search_query=streamlit)
+
+[Streamlit documentation](https://docs.streamlit.io/library/get-started/installation)
+
+#### Readme code examples (not relevant to this project)
+
+```bash
+pip install foobar
+```
 
 ```python
 import foobar
@@ -34,11 +51,3 @@ foobar.pluralize('goose')
 # returns 'phenomenon'
 foobar.singularize('phenomena')
 ```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## Resources
-[YouTube videos (ctrl + click to open in new tab)](https://www.youtube.com/results?search_query=streamlit)
