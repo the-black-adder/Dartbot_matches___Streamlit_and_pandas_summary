@@ -41,4 +41,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Resources
-[YouTube videos](https://www.youtube.com/results?search_query=streamlit)
+[YouTube videos (ctrl + click to open in new tab)](https://www.youtube.com/results?search_query=streamlit)
